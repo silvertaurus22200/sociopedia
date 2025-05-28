@@ -27,7 +27,7 @@ const UserWidget = ({userId, picturePath}) => {
     
       useEffect(() => {
         getUser();
-      }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
+      },[]); // eslint-disable-line react-hooks/exhaustive-deps
     
       if (!user) {
         return null;
