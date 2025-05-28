@@ -1,0 +1,9 @@
+# Ignore node_modules in both frontend and backend
+client/node_modules/
+server/node_modules/
+
+# Also good practice to ignore these:
+.env
+.DS_Store
+dist/
+build/
