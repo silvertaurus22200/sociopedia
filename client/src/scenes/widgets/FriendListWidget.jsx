@@ -3,9 +3,10 @@ import { useSelector } from "react-redux"
 import WidgetWrapper from "../../components/WidgetWrapper";
 import Friend from "../../components/Friend";
 
-const FriendListWidget = ({userId}) => {
+const FriendListWidget = ({userId, getUser}) => {
 
 
+    
     const { palette } = useTheme();
     const friends = useSelector((state) => state.user.friends);
 
@@ -27,6 +28,7 @@ const FriendListWidget = ({userId}) => {
                         name={`${friend.firstName} ${friend.lastName}`}
                         subtitle={friend.occupation}
                         userPicturePath={friend.picturePath}
+                        getUser = {getUser}
                     />
                 ))}
             </Box>

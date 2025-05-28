@@ -22,6 +22,7 @@ const PostWidget = ({
     userPicturePath,
     likes,
     comments,
+    getUser
 }) => {
 
     const [isComments, setIsComments] = useState(false);
@@ -57,6 +58,7 @@ const PostWidget = ({
                 name={name}
                 subtitle={location}
                 userPicturePath={userPicturePath}
+                getUser={getUser}
             />
             <Typography color={main} sx={{ mt: "1rem"}}>
                 {description}

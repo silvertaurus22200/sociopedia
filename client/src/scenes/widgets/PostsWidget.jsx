@@ -3,7 +3,7 @@ import { setPosts } from "../../state";
 import { useEffect } from "react";
 import PostWidget from "./PostWidget";
 
-const PostsWidget = ({userId, isProfile = false}) => {
+const PostsWidget = ({userId, isProfile = false, getUser}) => {
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts);
     const token = useSelector((state) => state.token);
@@ -64,6 +64,7 @@ const PostsWidget = ({userId, isProfile = false}) => {
                         userPicturePath={userPicturePath}
                         likes={likes}
                         comments={comments}
+                        getUser={getUser}
                     />
                 )
             )}

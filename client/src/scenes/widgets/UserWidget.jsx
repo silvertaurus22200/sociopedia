@@ -1,37 +1,20 @@
-import {useSelector} from "react-redux";
 import { Box, Divider, Typography, useTheme } from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import WidgetWrapper from "../../components/WidgetWrapper";
 import UserImage from "../../components/UserImage";
 import {EditOutlined, LocationOnOutlined, ManageAccountsOutlined, WorkOutlineOutlined} from "@mui/icons-material";
 import FlexBetween from "../../components/FlexBetween";
-import { useState, useEffect } from "react";
 
-const UserWidget = ({userId, picturePath}) => {
-    const [user, setUser] = useState(null);
+
+const UserWidget = ({userId, picturePath, user}) => {
     const {palette} = useTheme();
     const navigate = useNavigate();
-    const token = useSelector((state) => state.token);
+  
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
     
-    const getUser = async () => {
-        const response = await fetch(`https://sociopedia-backend-1evd.onrender.com/users/${userId}`, {
-          method: "GET",
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        const data = await response.json();
-        setUser(data);
-      };
-    
-      useEffect(() => {
-        getUser();
-      },[]); // eslint-disable-line react-hooks/exhaustive-deps
-    
-      if (!user) {
-        return null;
-      }
+   
 
     return(
         <WidgetWrapper>
